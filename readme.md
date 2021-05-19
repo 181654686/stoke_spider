@@ -18,3 +18,6 @@
 | stoke_roe_history  | 净资产报酬率 |https://eniu.com/chart/roea/sz000001/q/4|
 | stoke_value_history  | 市值|https://eniu.com/chart/marketvaluea/sz000001|
 
+# 运行
+python idList.py
+python dataList_fast.py
