@@ -287,7 +287,9 @@ class stork():
                         'stokeid':str(self.storkid),
                         'caiwutype':str(p['keyName'])})
 
-        db.bulk_query("insert stoke_caiwu_history(id,date, value,stokeid,caiwutype) values(:id, :date, :value,:stokeid,:caiwutype)", data)
+        if len(data)>0:
+            db.bulk_query("insert stoke_caiwu_history(id,date, value,stokeid,caiwutype) \
+            values(:id, :date, :value,:stokeid,:caiwutype)", data)
 
 # CREATE TABLE `gupiao`.`stoke_day_history` (
 #   `id` INT NOT NULL AUTO_INCREMENT,
@@ -321,8 +323,9 @@ class stork():
 
             data.append({'id':0,'day':k, 'guxi':guxi,'pea':pea,
             'price':price,'value':value,'pb':pb,'stoke_id':self.storkid})
-        db.bulk_query("insert stoke_day_history(id,day, guxi,pea,price,value,pb,stoke_id) \
-            values(:id, :day, :guxi,:pea,:price,:value,:pb,:stoke_id)", data)
+        if len(data)>0:
+            db.bulk_query("insert stoke_day_history(id,day, guxi,pea,price,value,pb,stoke_id) \
+                values(:id, :day, :guxi,:pea,:price,:value,:pb,:stoke_id)", data)
         pass
 
 # CREATE TABLE `gupiao`.`stoke_year_history` (
@@ -369,8 +372,9 @@ class stork():
             data.append({'id':0,'years':k, 'cashflow':cashflow,'debtratio':debtratio,
             'grossprofit':grossprofit,'income':income,'profit':profit,
             'profit_kf':profit_kf,'roa':roa,'roe':roe,'stoke_id':self.storkid})
-        db.bulk_query("insert stoke_year_history(id,years, cashflow,debtratio,grossprofit,income,profit,profit_kf,roa,roe,stoke_id) \
-            values(:id,:years,:cashflow,:debtratio,:grossprofit,:income,:profit,:profit_kf,:roa,:roe,:stoke_id)", data) 
+        if len(data)>0:
+            db.bulk_query("insert stoke_year_history(id,years, cashflow,debtratio,grossprofit,income,profit,profit_kf,roa,roe,stoke_id) \
+                values(:id,:years,:cashflow,:debtratio,:grossprofit,:income,:profit,:profit_kf,:roa,:roe,:stoke_id)", data) 
 
     def done(self):
         insertSql = "UPDATE main_list set done = 'ok' where stock_id='{}'"\
@@ -384,8 +388,8 @@ class stork():
 def getAlldata(stoke_id):
     s = stork(stoke_id)
     print('stoke_id:'+ stoke_id)
-    s.getData()
-    print('getPriceData:'+ time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) )
+    # s.getData()
+    # print('getPriceData:'+ time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) )
     s.getPriceData()
     print('getPEAData:'+ time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) )
     s.getPEAData()
@@ -434,4 +438,4 @@ def getStoke():
         getAlldata(d['stock_id'])
 
 getStoke()
-# getAlldata('sh600000')
+# getAlldata('hk01626')
