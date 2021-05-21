@@ -70,7 +70,10 @@ class stork():
         "https://eniu.com/chart/pricea/sz000001/t/all"
         url = "https://eniu.com/chart/pricea/{}/t/all".format(self.storkid)
         strhtml = requests.get(url)        #Get方式获取网页数据
-        params_json = json.loads(strhtml.text)
+        try:
+            params_json = json.loads(strhtml.text)
+        except:
+            return
         if len(params_json) == 0:
             return
         
@@ -85,7 +88,10 @@ class stork():
         "https://eniu.com/chart/pea/sz000001/t/all"
         url = "https://eniu.com/chart/pea/{}/t/all".format(self.storkid)
         strhtml = requests.get(url)        #Get方式获取网页数据
-        params_json = json.loads(strhtml.text)
+        try:
+            params_json = json.loads(strhtml.text)
+        except:
+            return
         if len(params_json) == 0:
             return
 
@@ -102,7 +108,10 @@ class stork():
         "https://eniu.com/chart/pba/sz000001/t/all"
         url = "https://eniu.com/chart/pba/{}/t/all".format(self.storkid)
         strhtml = requests.get(url)        #Get方式获取网页数据
-        params_json = json.loads(strhtml.text)
+        try:
+            params_json = json.loads(strhtml.text)
+        except:
+            return
         if len(params_json) == 0:
             return
 
@@ -118,7 +127,10 @@ class stork():
         "https://eniu.com/chart/dva/sz000001/t/all"
         url = "https://eniu.com/chart/dva/{}/t/all".format(self.storkid)
         strhtml = requests.get(url)        #Get方式获取网页数据
-        params_json = json.loads(strhtml.text)
+        try:
+            params_json = json.loads(strhtml.text)
+        except:
+            return
         if len(params_json) == 0:
             return
         
@@ -134,7 +146,10 @@ class stork():
         "https://eniu.com/chart/marketvaluea/sz000001"
         url = "https://eniu.com/chart/marketvaluea/{}".format(self.storkid)
         strhtml = requests.get(url)        #Get方式获取网页数据
-        params_json = json.loads(strhtml.text)
+        try:
+            params_json = json.loads(strhtml.text)
+        except:
+            return
         if len(params_json) == 0:
             return
         for d in range(0, len(params_json['date'])):
@@ -148,7 +163,10 @@ class stork():
         "https://eniu.com/chart/roea/sz000001/q/4"
         url = "https://eniu.com/chart/roea/{}/q/4".format(self.storkid)
         strhtml = requests.get(url)        #Get方式获取网页数据
-        params_json = json.loads(strhtml.text)
+        try:
+            params_json = json.loads(strhtml.text)
+        except:
+            return
         if len(params_json) == 0:
             return
         for d in range(0, len(params_json['date'])):
@@ -169,7 +187,10 @@ class stork():
         "https://eniu.com/chart/profita/sz000001/q/4"
         url = "https://eniu.com/chart/profita/{}/q/4".format(self.storkid)
         strhtml = requests.get(url)        #Get方式获取网页数据
-        params_json = json.loads(strhtml.text)
+        try:
+            params_json = json.loads(strhtml.text)
+        except:
+            return
         if len(params_json) == 0:
             return
 
@@ -184,7 +205,10 @@ class stork():
         "https://eniu.com/chart/incomea/sz000001/q/4"
         url = "https://eniu.com/chart/incomea/{}/q/4".format(self.storkid)
         strhtml = requests.get(url)        #Get方式获取网页数据
-        params_json = json.loads(strhtml.text)
+        try:
+            params_json = json.loads(strhtml.text)
+        except:
+            return
         if len(params_json) == 0:
             return
  
@@ -199,7 +223,10 @@ class stork():
         "https://eniu.com/chart/profitkfa/sz000001/q/4"
         url = "https://eniu.com/chart/profitkfa/{}/q/4".format(self.storkid)
         strhtml = requests.get(url)        #Get方式获取网页数据
-        params_json = json.loads(strhtml.text)
+        try:
+            params_json = json.loads(strhtml.text)
+        except:
+            return
         if len(params_json) == 0:
             return
         for d in range(0, len(params_json['date'])):
@@ -214,7 +241,10 @@ class stork():
         "https://eniu.com/chart/debtratioa/sz000001/q/4"
         url = "https://eniu.com/chart/debtratioa/{}/q/4".format(self.storkid)
         strhtml = requests.get(url)        #Get方式获取网页数据
-        params_json = json.loads(strhtml.text)
+        try:
+            params_json = json.loads(strhtml.text)
+        except:
+            return
         if len(params_json) == 0:
             return
         for d in range(0, len(params_json['date'])):
@@ -229,7 +259,10 @@ class stork():
         "https://eniu.com/chart/cashflowa/sz000001/q/4"
         url = "https://eniu.com/chart/cashflowa/{}/q/4".format(self.storkid)
         strhtml = requests.get(url)        #Get方式获取网页数据
-        params_json = json.loads(strhtml.text)
+        try:
+            params_json = json.loads(strhtml.text)
+        except:
+            return
         if len(params_json) == 0:
             return
         for d in range(0, len(params_json['date'])):
@@ -243,7 +276,10 @@ class stork():
         "https://eniu.com/chart/grossprofitmargina/sz000001/q/4"
         url = "https://eniu.com/chart/grossprofitmargina/{}/q/4".format(self.storkid)
         strhtml = requests.get(url)        #Get方式获取网页数据
-        params_json = json.loads(strhtml.text)
+        try:
+            params_json = json.loads(strhtml.text)
+        except:
+            return
         if len(params_json) == 0:
             return
 
@@ -261,7 +297,10 @@ class stork():
         url = 'https://eniu.com/table/cwzba/'+self.storkid+"/q/4"
         strhtml = requests.get(url)        #Get方式获取网页数据
         # html = etree.HTML(strhtml.text)
-        params_json = json.loads(strhtml.text)
+        try:
+            params_json = json.loads(strhtml.text)
+        except:
+            return
         # with open("{}财务.txt".format(self.storkid),'w') as f:
         #     json.dump(strhtml.text,f)
         if len(params_json) == 0:
@@ -421,7 +460,7 @@ def getAlldata(stoke_id):
     s.getCawuData()
     print('end:'+ time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) )
     s.done()
-    time.sleep(5)
+    # time.sleep(2)
 
 def getStoke():
     Sql = "select * from main_list where done!='ok'"
